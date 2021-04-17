@@ -17,6 +17,7 @@ import path from 'path';
 import { Upvote } from './entities/upvote';
 import { createUserLoader } from './utils/createUserLoader';
 import { createUpvoteLoader } from './utils/createUpvoteLoader';
+import { PostComment } from './entities/postComment';
 
 const main = async () => {
     const conn = await createConnection({
@@ -25,7 +26,7 @@ const main = async () => {
         logging: false,
         synchronize: true,
         migrations: [path.join(__dirname, "./migrations/*")],
-        entities: [Post, User, Upvote]
+        entities: [Post, User, Upvote, PostComment]
     })
     await conn.runMigrations();
     const app = express();

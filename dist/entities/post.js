@@ -15,6 +15,7 @@ const typeorm_1 = require("typeorm");
 const upvote_1 = require("./upvote");
 const user_1 = require("./user");
 const nanoid_1 = require("nanoid");
+const postComment_1 = require("./postComment");
 let Post = class Post extends typeorm_1.BaseEntity {
     setId() {
         this.referenceId = nanoid_1.nanoid(10);
@@ -89,6 +90,10 @@ __decorate([
     typeorm_1.OneToMany(() => upvote_1.Upvote, (upvote) => upvote.post),
     __metadata("design:type", Array)
 ], Post.prototype, "upvotes", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => postComment_1.PostComment, postComment => postComment.post),
+    __metadata("design:type", Array)
+], Post.prototype, "postComments", void 0);
 __decorate([
     type_graphql_1.Field(() => String),
     typeorm_1.CreateDateColumn(),

@@ -3,6 +3,7 @@ import { BaseEntity, BeforeInsert, Column, CreateDateColumn, Entity, ManyToOne, 
 import { Upvote } from "./upvote";
 import { User } from "./user";
 import { nanoid } from 'nanoid'
+import { PostComment } from "./postComment";
 
 //Post table in db
 @ObjectType()
@@ -62,6 +63,9 @@ export class Post extends BaseEntity{
 
   @OneToMany(() => Upvote, (upvote) => upvote.post)
   upvotes: Upvote[];
+
+  @OneToMany(() => PostComment, postComment => postComment.post)
+  postComments: PostComment[];
 
   @Field(() => String)
   @CreateDateColumn()

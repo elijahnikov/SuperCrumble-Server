@@ -5,27 +5,7 @@ import { isAuth } from "../middleware/isAuth";
 import { getConnection } from "typeorm";
 import { Upvote } from "../entities/upvote";
 import { User } from "../entities/user";
-
-@InputType()
-class PostInput {
-    @Field()
-    movieId: number
-
-    @Field()
-    text: string
-
-    @Field()
-    movie_poster: string
-
-    @Field()
-    movie_title: string
-
-    @Field()
-    movie_release_year: number
-
-    @Field()
-    ratingGiven: number
-}
+import { PostInput } from "./inputs/PostInput";
 
 //detect whether there is no more data to paginate through
 @ObjectType()

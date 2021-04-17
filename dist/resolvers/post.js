@@ -28,35 +28,7 @@ const isAuth_1 = require("../middleware/isAuth");
 const typeorm_1 = require("typeorm");
 const upvote_1 = require("../entities/upvote");
 const user_1 = require("../entities/user");
-let PostInput = class PostInput {
-};
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", Number)
-], PostInput.prototype, "movieId", void 0);
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", String)
-], PostInput.prototype, "text", void 0);
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", String)
-], PostInput.prototype, "movie_poster", void 0);
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", String)
-], PostInput.prototype, "movie_title", void 0);
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", Number)
-], PostInput.prototype, "movie_release_year", void 0);
-__decorate([
-    type_graphql_1.Field(),
-    __metadata("design:type", Number)
-], PostInput.prototype, "ratingGiven", void 0);
-PostInput = __decorate([
-    type_graphql_1.InputType()
-], PostInput);
+const PostInput_1 = require("./inputs/PostInput");
 let PaginatedPosts = class PaginatedPosts {
 };
 __decorate([
@@ -231,7 +203,7 @@ __decorate([
     __param(0, type_graphql_1.Arg("input")),
     __param(1, type_graphql_1.Ctx()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [PostInput, Object]),
+    __metadata("design:paramtypes", [PostInput_1.PostInput, Object]),
     __metadata("design:returntype", Promise)
 ], PostResolver.prototype, "createPost", null);
 __decorate([
